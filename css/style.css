@@ -58,3 +58,34 @@
     font-style: normal;
 
 }
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+}
+
+.selection-header {
+    color: #fff;
+}
+
+section.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+footer{
+    color: #c2c2c2;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    bottom: 50px;
+    position: absolute;
+}
+.capitalize{
+    text-transform: uppercase;
+}
