@@ -13,10 +13,20 @@
     })
     .done(function(data) {
       console.log(data);
+      var articleCounter = 0;
       $.each(data.results, function(i, value){
-          var output = '<p>' + value.title + '</p>';
-          output += '<p>' + value.abstract + '</p>';
+          if (articleCounter === 12){
+            return false;
+          }
+          if(value.multimedia.length === 0){
+            return true;
+          }
+          var output = "<ol>";
+          output += '<li>' + value.title + '</li>';
+          output += "</ol>";
+          // output += '<p>' + value.abstract + '</p>';
           $('#gallery').append(output);
+          articleCounter ++;
       });
     })
     .fail(function(){
