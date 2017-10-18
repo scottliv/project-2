@@ -17,6 +17,13 @@
   },
   "homepage": "https://github.com/scottliv/project-2#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "browser-sync": "^2.18.13",
+    "eslint": "^4.9.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "gulp-eslint": "^4.0.0"
   }
 }
