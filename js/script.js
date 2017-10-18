@@ -6,13 +6,20 @@
   });
   $("#select-section").on('change', function(){
     var section = $("#select-section").val();
+    $("#gallery").empty();
     $.ajax({
       url: url,
       method: "GET",
     })
     .done(function(data) {
       console.log(data);
-      
+      $.each(data.results, function(i, value){
+        if (value.section.toLowerCase() == section){
+          var output = "<p>" + value.title + "</p>";
+          output += "<p>" + value.abstract + "</p>";
+          $("#gallery").append(output);
+        } 
+      });
     })
     .fail(function(){
       throw error;

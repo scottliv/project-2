@@ -83,9 +83,10 @@ footer{
     text-align: center;
     margin: 0 auto;
     width: 100%;
-    bottom: 50px;
-    position: absolute;
 }
 .capitalize{
     text-transform: uppercase;
+}
+.gallery {
+    color: #fff;
 }
