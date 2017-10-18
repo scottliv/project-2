@@ -63,12 +63,29 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 body {
     background-color: #000;
 }
 
 .selection-header {
     color: #fff;
+}
+
+.no-selection{
+    margin-bottom: 50%;
+}
+
+/* .img-container {
+    height: 50vw;
+} */
+
+.gallery {
+    height: 50vw;
 }
 
 section.main {
