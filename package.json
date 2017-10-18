@@ -1,0 +1,22 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "using the new york times api to create a website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottliv/project-2.git"
+  },
+  "author": "scottliv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scottliv/project-2/issues"
+  },
+  "homepage": "https://github.com/scottliv/project-2#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
