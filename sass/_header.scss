@@ -2,8 +2,6 @@
     color: #fff;
 }
 
-  
-
 .active{
     display: flex;
     flex-direction: column;
@@ -16,11 +14,22 @@
     height: auto;
     margin-bottom: 10px;
   }
+  @include desktop {
+    justify-content: flex-start;
+  }
 }
 
 .active-logo{
   @include tablet{
-    max-height: 100px;
+    height: 75px;
+    margin: 20px;
+  }
+}
+
+.selection-container {
+  margin: 10px;
+  @include tablet{
+    margin: 0 8%;
   }
 }
 
@@ -37,4 +46,8 @@
     @include tablet{
       flex-direction: row;
     }
+    @include desktop {
+      justify-content: flex-start;
+    }
+
 }
