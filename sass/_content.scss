@@ -32,6 +32,11 @@ div.image-container {
     }
 }
 
+.loader{
+    margin: 0 auto;
+    max-height: 200px;
+}
+
 .abstract {
     background-image: linear-gradient(30deg, rgba(39, 39, 39, 0.5), rgba(39, 39, 39, 0.5));
     line-height: 1.5rem;

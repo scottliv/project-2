@@ -7,8 +7,10 @@
     url += '?' + $.param({
       'api-key': 'e5a8f43f464d44158743411125fae91b'
     });
+    // Clear the container
     $('.gallery').children().remove();
-    
+    $('.gallery').append('<img class="loader" src="images/ajax-loader.gif"/>')
+   
     // remove defaullt styling once a section is selected
     if (section !== 'section'){
       $('header').removeClass('no-selection');
@@ -18,16 +20,21 @@
 
     // Reset styling when section is selected
     if (section === "section"){
+      $('.loader').remove();
       $('header').addClass('no-selection');
       $('header').removeClass('active');
       $('.logo').removeClass('active-logo')
+      
     } 
+
+    
 
     $.ajax({
       url: url,
       method: 'GET',
     })
     .done(function(data) {
+      $('.gallery').children().remove();
       console.log(data);
       var articleCounter = 0;
       $.each(data.results, function(i, value){
@@ -63,5 +70,5 @@
       throw error;
     });
   });
-  
+
 }(jQuery));

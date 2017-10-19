@@ -24,14 +24,17 @@
   }
 }
 
+.selection-header {
+  padding: 10px 0;
+}
+
 .no-selection{
-    margin-bottom: 50%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     @include tablet{
       flex-direction: row;
-      margin: 20% 0;
     }
 }
