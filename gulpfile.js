@@ -4,7 +4,11 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     browserSync = require('browser-sync'),
-    eslint = require('gulp-eslint');
+    eslint = require('gulp-eslint'),
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cssnano = require('gulp-cssnano'),
+    prettyError = require('gulp-prettyerror');
 
 gulp.task('scripts', ['lint'], function() {
   gulp.src('./js/*.js')
@@ -13,9 +17,23 @@ gulp.task('scripts', ['lint'], function() {
     .pipe(gulp.dest('./build/js'))
 });
 
+gulp.task('sass', function () {
+  gulp.src('./sass/style.scss')
+    .pipe(prettyError())
+    .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions']
+    }))
+    .pipe(gulp.dest('./build/css'))
+    .pipe(cssnano())
+    .pipe(rename('style.min.css'))
+    .pipe(gulp.dest('./build/css'));
+});
+
 gulp.task('watch', function () {
   // compile minified js files automatically
   gulp.watch('js/*.js', ['scripts']);
+  gulp.watch('sass/*.scss', ['sass']);
 });
 
 gulp.task('browser-sync', function(){
@@ -37,4 +55,4 @@ gulp.task('lint', function(){
 })
 
 
-gulp.task('default', ['scripts', 'browser-sync', 'watch'] );
+gulp.task('default', ['scripts', 'sass', 'browser-sync', 'watch'] );
