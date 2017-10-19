@@ -8,7 +8,7 @@
     url += '?' + $.param({
       'api-key': 'e5a8f43f464d44158743411125fae91b'
     });
-    $('#gallery').empty();
+    $('.gallery').children().remove();
     
     // remove defaullt styling once a section is selected
     if (section !== 'Section'){
@@ -23,9 +23,9 @@
       console.log(data);
       var articleCounter = 0;
       $.each(data.results, function(i, value){
-          if (i === 12){
-            return false;
-          }
+          // if (articleCounter === 12){
+          //   return false;
+          // }
           if(value.multimedia.length === 0){
             return true;
           }
@@ -35,16 +35,19 @@
           var output = '<li class="gallery-item"><a href="';
           output += value.url;
           output += '"><div class=' + imageNumber + '>';
-          output += value.abstract;
+          output += '<p class="abstract">' + value.abstract + '</p>';
           output += '</div></a></li>';
-          $('#gallery').append(output);
+          $('.gallery').append(output);
+          console.log(output);
           $('.' + imageNumber).css({
             'background-image': 'url("' + backgroundImage + '")',
             'background-size': 'cover',
             'background-position': 'center',
-            'height': '50vw'
+            'height': '100%'
           });
-          // articleCounter ++;
+          articleCounter ++;
+          console.log(articleCounter);
+          return (articleCounter !== 12);
       });
     })
     .fail(function(){

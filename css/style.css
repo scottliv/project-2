@@ -9,7 +9,7 @@
          url('../fontsopensans-bold-webfont.woff2') format('woff2'),
          url('../fontsopensans-bold-webfont.ttf') format('truetype'),
          url('../fontsopensans-bold-webfont.svg#open_sansbold') format('svg');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 
 }
@@ -24,8 +24,8 @@
          url('../fonts/opensans-bolditalic-webfont.woff2') format('woff2'),
          url('../fonts/opensans-bolditalic-webfont.ttf') format('truetype'),
          url('../fonts/opensans-bolditalic-webfont.svg#open_sansbold_italic') format('svg');
-    font-weight: normal;
-    font-style: normal;
+    font-weight: bold;
+    font-style: italic;
 
 }
 
@@ -55,7 +55,7 @@
          url('../fonts/opensans-lightitalic-webfont.ttf') format('truetype'),
          url('../fonts/opensans-lightitalic-webfont.svg#open_sanslight_italic') format('svg');
     font-weight: normal;
-    font-style: normal;
+    font-style: italic;
 
 }
 
@@ -70,6 +70,7 @@ a {
 
 body {
     background-color: #000;
+    font-family: 'open_sanslight';
 }
 
 .selection-header {
@@ -80,13 +81,6 @@ body {
     margin-bottom: 50%;
 }
 
-/* .img-container {
-    height: 50vw;
-} */
-
-.gallery {
-    height: 50vw;
-}
 
 section.main {
     display: flex;
@@ -105,5 +99,47 @@ footer{
     text-transform: uppercase;
 }
 .gallery {
+    display: flex;
+    flex-direction: column;
     color: #fff;
+}
+div {
+     display: flex;
+     align-items: flex-end;
+}
+.gallery-item{
+    width: 100%;
+    height: 50vw;
+}
+
+.abstract {
+    background-image: linear-gradient(30deg, rgba(39, 39, 39, 0.5), rgba(39, 39, 39, 0.5));
+
+}
+
+@media all and (min-width: 600px) {
+
+    .gallery{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .gallery-item{ 
+        width: 33%;
+        height: 40vw;
+        max-height: 450px;
+    }
+}
+
+@media all and (min-width: 1240px) {
+    .gallery{
+        max-width: 1500px;        
+    }
+    .gallery-item{
+        width: 25%;
+        height: 35vw;
+    }
 }
