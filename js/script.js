@@ -38,14 +38,15 @@
       console.log(data);
       var articleCounter = 0;
       $.each(data.results, function(i, value){
-          // if (articleCounter === 12){
-          //   return false;
-          // }
+        
           if(value.multimedia.length === 0){
             return true;
           }
-          var backgroundImage = value.multimedia[4].url;
-          // set a unique class on each item
+          // Look for the highest quality image to display
+          var bestQuality = value.multimedia.length - 1;
+          var backgroundImage = value.multimedia[bestQuality].url;
+
+          // set a unique class on each item for the background image
           var imageNumber = 'image-conatiner-'+i;
           var output = '<li class="gallery-item"><a href="';
           output += value.url;
@@ -53,7 +54,7 @@
           output += '<p class="abstract">' + value.abstract + '</p>';
           output += '</div></a></li>';
           $('.gallery').append(output);
-          console.log(output);
+          // console.log(output);
           $('.' + imageNumber).css({
             'background-image': 'url("' + backgroundImage + '")',
             'background-size': 'cover',
@@ -66,8 +67,8 @@
       });
     })
     .fail(function(){
-      var error = undefined;
-      throw error;
+      var error = 0;
+      return error;
     });
   });
 
