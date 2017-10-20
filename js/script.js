@@ -51,7 +51,7 @@
           var output = '<li class="gallery-item"><a href="';
           output += value.url;
           output += '"><div class="image-container ' + imageNumber + '">';
-          output += '<p class="abstract">' + value.abstract + '</p>';
+          output += '<p class="abstract pullUp">' + value.abstract + '</p>';
           output += '</div></a></li>';
           // Add elements to the DOM
           $('.gallery').append(output);

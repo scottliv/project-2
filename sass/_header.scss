@@ -3,6 +3,7 @@
 }
 
 .active{
+    transition: all 1s ease-in .5s;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,6 +21,7 @@
 }
 
 .active-logo{
+  transition: all 0.5s ease-in-out 0.05s;
   @include tablet{
     height: 75px;
     margin: 20px;
@@ -34,6 +36,7 @@
 }
 
 .selection-header {
+  transition: all 0.5s ease-in-out 0.05s;
   padding: 10px 0;
 }
 
