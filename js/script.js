@@ -38,7 +38,7 @@
       console.log(data);
       var articleCounter = 0;
       $.each(data.results, function(i, value){
-          // Check to see if image file exists, if there is no image, returning true comtinues to the next item in the loop
+          // Check to see if image file exists, if there is no image, returning true continues to the next item in the loop
           if(value.multimedia.length === 0){
             return true;
           }
@@ -72,6 +72,7 @@
     })
     .fail(function(){
       var error = 0;
+      $('.gallery').append('<li>Cannot retrieve articles</li>');
       return error;
     });
   });

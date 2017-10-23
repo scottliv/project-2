@@ -53,18 +53,19 @@ div.image-container {
 }
 
 .gallery-item:hover .pullUp {
-
-    animation-name: pullUp;
-
-	animation-duration: 0.3s;	
-
-	animation-timing-function: ease-out;	
-
-	transform-origin: 50% 100%;
-    
-    max-height: 35%;
-    transform: translateY(0);
-    visibility: visible;
+    @include tablet {
+        animation-name: pullUp;
+        
+	    animation-duration: 0.3s;	
+        
+	    animation-timing-function: ease-out;	
+        
+	    transform-origin: 30% 100%;
+        
+        max-height: 35%;
+        transform: translateY(0);
+        visibility: visible;
+    }
 }
 
 /*
