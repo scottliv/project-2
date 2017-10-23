@@ -19,7 +19,7 @@
     }
 
     // Reset styling when section is selected
-    if (section === "section"){
+    if (section === 'section'){
       $('.loader').remove();
       $('header').addClass('no-selection');
       $('header').removeClass('active');
@@ -34,14 +34,17 @@
       method: 'GET',
     })
     .done(function(data) {
+      //Remove Loading gif
       $('.gallery').children().remove();
-      console.log(data);
+      // Set article counter to keep track of articles being appended
       var articleCounter = 0;
       $.each(data.results, function(i, value){
+
           // Check to see if image file exists, if there is no image, returning true continues to the next item in the loop
           if(value.multimedia.length === 0){
             return true;
           }
+
           // Look for the highest quality image to display
           var bestQuality = value.multimedia.length - 1;
           var backgroundImage = value.multimedia[bestQuality].url;
@@ -55,7 +58,7 @@
           output += '</div></a></li>';
           // Add elements to the DOM
           $('.gallery').append(output);
-          // console.log(output);
+          
           //Selects image class and adds background image
           $('.' + imageNumber).css({
             'background-image': 'url("' + backgroundImage + '")',
@@ -63,10 +66,12 @@
             'background-position': 'center',
             'height': '100%'
           });
+
           // Increment to article counter after an item has been appended
           articleCounter ++;
-          // console.log(articleCounter);
+      
           // The loop will continue so long as the article counter does not equal 12
+          // once 12 has been reached this will return false and end the .each loop
           return (articleCounter !== 12);
       });
     })
@@ -76,6 +81,7 @@
       return error;
     });
   });
+
   // Selectric Form Styling
   $('select').selectric();
 }(jQuery));
