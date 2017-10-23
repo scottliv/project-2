@@ -1,6 +1,6 @@
 (function($){
 
-  $('#select-section').on('change', function(){
+  var runAjax = function(){
     // Construct the url based on user selection
     var section = $('#select-section').val();
     var url = 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json';
@@ -81,6 +81,12 @@
       $('.gallery').append('<li>Cannot retrieve articles</li>');
       return error;
     });
+  };
+
+  runAjax();
+
+  $('#select-section').on('change', function () {
+    runAjax();
   });
 
   // Selectric Form Styling
