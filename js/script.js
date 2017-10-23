@@ -24,8 +24,7 @@
       $('header').addClass('no-selection');
       $('header').removeClass('active');
       $('.logo').removeClass('active-logo')
-      return true;
-      
+      return true; 
     } 
     
     // Retrieve data from NYT API

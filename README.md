@@ -11,6 +11,9 @@ Hosted on github pages @ https://scottliv.github.io/project-2/
 ## Built With
 HTML SASS Javascript jQuery
 
+## Personal Learning
+This project taught me how to fetch data from an external source and process it. I learned JSON and AJAX, and how to access specific pieces of information in a json file. I learned SASS to improve my stylesheets, as well as GULP as a task manager to output minified build files and use eslint to check my script file for errors.
+
 
 ## Authors
 
