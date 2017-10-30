@@ -2,7 +2,7 @@
 
 (function ($) {
 
-  let runAjax = function runAjax() {
+  let runAjax = () => {
     // Construct the url based on user selection
     let section = $('#select-section').val();
     let url = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
@@ -34,11 +34,11 @@
     $.ajax({
       url: url,
       method: 'GET'
-    }).done(function (data) {
+    }).done((data) => {
       //Remove Loading gif
       $('.gallery').children().remove();
       // Set article counter to keep track of articles being appended
-      var articleCounter = 0;
+      let articleCounter = 0;
       $.each(data.results, (i, value) => {
 
         // Check to see if image file exists, if there is no image, returning true continues to the next item in the loop
@@ -75,7 +75,7 @@
         // once 12 has been reached this will return false and end the .each loop
         return articleCounter !== 12;
       });
-    }).fail(function () {
+    }).fail(() => {
       var error = 0;
       $('.gallery').append('<li>Cannot retrieve articles</li>');
       return error;
@@ -84,7 +84,7 @@
 
   runAjax();
 
-  $('#select-section').on('change', function () {
+  $('#select-section').on('change',() => {
     runAjax();
   });
 
