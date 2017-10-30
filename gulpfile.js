@@ -8,10 +8,13 @@ var uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     cssnano = require('gulp-cssnano'),
-    prettyError = require('gulp-prettyerror');
+    prettyError = require('gulp-prettyerror'),
+    babel = require('gulp-babel');
 
 gulp.task('scripts', ['lint'], function() {
   gulp.src('./js/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('./build/js'))
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('./build/js'))
@@ -52,7 +55,14 @@ gulp.task('lint', function(){
   .pipe(eslint())
   .pipe(eslint.format())
   .pipe(eslint.failAfterError());
-})
+});
+
+gulp.task('babel', function(){
+   gulp.src(['./js/*.js', '!node_modules/**'])
+  .pipe(babel())
+  .pipe(rename('transpilled.js'))
+  .pipe(gulp.dest('./js'));
+});
 
 
 gulp.task('default', ['scripts', 'sass', 'browser-sync', 'watch'] );
