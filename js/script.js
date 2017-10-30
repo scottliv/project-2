@@ -55,14 +55,14 @@
         let output = '<li class="gallery-item"><a href="';
         output += value.url;
         output += `"><div class="image-container ${imageNumber}">`;
-        output += '<p class="abstract pullUp">' + value.abstract + '</p>';
+        output += `<p class="abstract pullUp">${value.abstract}</p>`;
         output += '</div></a></li>';
         // Add elements to the DOM
         $('.gallery').append(output);
 
         //Selects image class and adds background image
         $(`.${imageNumber}`).css({
-          'background-image': 'url("' + backgroundImage + '")',
+          'background-image': `url("${backgroundImage}")`,
           'background-size': 'cover',
           'background-position': 'center',
           'height': '100%'
