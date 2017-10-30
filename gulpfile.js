@@ -57,12 +57,12 @@ gulp.task('lint', function(){
   .pipe(eslint.failAfterError());
 });
 
-gulp.task('babel', function(){
-   gulp.src(['./js/*.js', '!node_modules/**'])
-  .pipe(babel())
-  .pipe(rename('transpilled.js'))
-  .pipe(gulp.dest('./js'));
-});
+// gulp.task('babel', function(){
+//    gulp.src(['./js/*.js', '!node_modules/**'])
+//   .pipe(babel())
+//   .pipe(rename('transpilled.js'))
+//   .pipe(gulp.dest('./js'));
+// });
 
 
 gulp.task('default', ['scripts', 'sass', 'browser-sync', 'watch'] );
