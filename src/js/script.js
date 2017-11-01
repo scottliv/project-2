@@ -3,7 +3,7 @@ import "../sass/style.scss";
 
 (function ($) {
 
-  let runAjax = () => {
+  const runAjax = () => {
     // Construct the url based on user selection
     let section = $('#select-section').val();
     let url = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
@@ -77,7 +77,7 @@ import "../sass/style.scss";
         return articleCounter !== 12;
       });
     }).fail(() => {
-      var error = 0;
+      const error = 0;
       $('.gallery').append('<li>Cannot retrieve articles</li>');
       return error;
     });

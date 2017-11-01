@@ -3,29 +3,36 @@ module.exports = {
   output: {
     filename: './build/bundle.js'
   },
-
-module: {
-  rules: [
-    {
-      test: /\.(eot|svg|ttf|woff|woff2)$/,
-      use: [{
-        loader: 'file?name=public/fonts/[name].[ext]'
-      }]
-    },
-    {
-      test: /\.scss$/,
-      use:[
-        {
-          loader: 'style-loader'
-        },
-        {
-          loader: 'css-loader'
-        },
-        {
-          loader: 'sass-loader'
-        }
-      ]
-    },
-  ]
-}
+  devtool: 'inline-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [{
+          loader: 'file?name=public/fonts/[name].[ext]'
+        }]
+      },
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+      {
+        test: /\.scss$/,
+        use:[
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+    ]
+  }
 };
