@@ -19,7 +19,7 @@ div.image-container {
      align-items: flex-end;
 }
 .gallery-item{
-    transition: all 0.3s ease 0.08s;
+    transition: all 0.05s ease 0.05s;
     width: 100%;
     height: 50vw;
     @include tablet {
@@ -46,7 +46,6 @@ div.image-container {
     min-height: 40%;
     @include tablet {
         overflow-y: hidden;
-        // transform: translateY(100%);
         max-height: 0px;
         visibility: hidden;
     }
@@ -89,12 +88,6 @@ pullUp
 	}
 	100% {
 		transform: scaleY(1.0);
-	}				
-	// 80% {
-	// 	transform: scaleY(1.01);
-	// }
-	// 100% {
-	// 	transform: scaleY(1);
-	// }							
+	}							
 }
 
