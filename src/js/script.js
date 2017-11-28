@@ -52,7 +52,7 @@ import "../sass/style.scss";
         let backgroundImage = value.multimedia[bestQuality].url;
 
         // set a unique class on each item for the background image + construct HTML 
-        let imageNumber = `image-conatiner-${i}`;
+        let imageNumber = `image-container-${i}`;
         let output = '<li class="gallery-item"><a href="';
         output += value.url;
         output += `"><div class="image-container ${imageNumber}">`;
