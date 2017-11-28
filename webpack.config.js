@@ -14,8 +14,7 @@ module.exports = {
             name: 'public/fonts/[name].[ext]',
             emitFile: false
           }
-        }
-        ]
+        }]
       },
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
       {
