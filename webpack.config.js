@@ -9,8 +9,13 @@ module.exports = {
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: [{
-          loader: 'file?name=public/fonts/[name].[ext]'
-        }]
+          loader: 'file-loader',
+          options: {
+            name: 'public/fonts/[name].[ext]',
+            emitFile: false
+          }
+        }
+        ]
       },
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
       {
@@ -20,10 +25,13 @@ module.exports = {
             loader: 'style-loader'
           },
           {
-            loader: 'css-loader',
+            loader: 'css-loader?-url',
             options: {
               sourceMap: true
             }
+          },
+          {
+            loader: 'resolve-url-loader'
           },
           {
             loader: 'sass-loader',
