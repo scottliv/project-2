@@ -7,12 +7,13 @@ import "../sass/style.scss";
     // Construct the url based on user selection
     let section = $('#select-section').val();
     let url = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
+    let $gallery = $('.gallery');
     url += `?${$.param({
       'api-key': 'e5a8f43f464d44158743411125fae91b'
     })}`;
     // Clear the container and add a loading .gif
-    $('.gallery').children().remove();
-    $('.gallery').append('<img class="loader" src="images/ajax-loader.gif"/>');
+    $gallery.children().remove();
+    $gallery.append('<img class="loader" src="images/ajax-loader.gif"/>');
 
     // Remove defaullt styling once a section is selected
     if (section !== 'section') {
@@ -37,7 +38,7 @@ import "../sass/style.scss";
       method: 'GET'
     }).done((data) => {
       //Remove Loading gif
-      $('.gallery').children().remove();
+      $gallery.children().remove();
       // Set article counter to keep track of articles being appended
       let articleCounter = 0;
       $.each(data.results, (i, value) => {
@@ -59,7 +60,7 @@ import "../sass/style.scss";
         output += `<p class="abstract pullUp">${value.abstract}</p>`;
         output += '</div></a></li>';
         // Add elements to the DOM
-        $('.gallery').append(output);
+        $gallery.append(output);
 
         //Selects image class and adds background image
         $(`.${imageNumber}`).css({
@@ -78,7 +79,7 @@ import "../sass/style.scss";
       });
     }).fail(() => {
       const error = 0;
-      $('.gallery').append('<li>Cannot retrieve articles</li>');
+      $gallery.append('<li>Cannot retrieve articles</li>');
       return error;
     });
   };
