@@ -32,7 +32,6 @@ import "../sass/style.scss";
     }
 
     // Retrieve data from NYT API
-
     $.ajax({
       url: url,
       method: 'GET'
@@ -78,12 +77,12 @@ import "../sass/style.scss";
         return articleCounter !== 12;
       });
     }).fail(() => {
-      const error = 0;
       $gallery.append('<li>Cannot retrieve articles</li>');
-      return error;
+      return false;
     });
   };
 
+  // Calls the function on page load, will maintain previous selection if coming back from an article
   runAjax();
 
   $('#select-section').on('change',() => {
