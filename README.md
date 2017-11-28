@@ -6,7 +6,7 @@ Makes use of the New York Times API to populate a website with the first 12 stor
 
 ## Deployment
 
-Hosted on github pages @ https://scottliv.github.io/project-2/
+Hosted on github pages @ https://scottliv.github.io/red-academy-project-2-javascript-jquery/
 
 ## Built With
 HTML SASS Javascript jQuery
