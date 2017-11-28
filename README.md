@@ -1,3 +1,4 @@
+![Alt text](/screenshot.png?raw=true "Instanews Screenshot")
 # Project Title
 INSTANEWS
 
